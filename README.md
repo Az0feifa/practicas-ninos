@@ -4,9 +4,7 @@ Práctica interactiva para un niño de 8 años, construida en HTML, CSS y JavaSc
 
 ## Materias
 
-- Ciencias: biodiversidad, ecosistemas, adaptaciones, energía y amenazas.
-- Español: elementos del texto, vocabulario, diccionario, comprensión, fábulas y cuentos.
-- Estudios Sociales: actividades del cantón, instrumentos de orientación y puntos cardinales.
+Multiples materias de escuela primaria
 
 ## Funciones
 
