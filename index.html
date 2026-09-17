@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="description" content="Práctica interactiva de inglés: community helpers, places, goods and services, -op/-og words. Bilingüe con voz.">
+  <title>English Adventure — Mi Comunidad 🏘️</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+
+    <!-- PANTALLA DE INICIO -->
+    <section id="start-screen" class="screen active" aria-labelledby="game-title">
+      <div class="mascot" aria-hidden="true">🦉</div>
+      <p class="eyebrow">PRÁCTICA DE INGLÉS · TERCER GRADO</p>
+      <h1 id="game-title">English Adventure</h1>
+      <p class="intro">¡Hola! Soy <strong>Buho el búho</strong> 🦉. Vamos a practicar inglés para tu examen.
+        Escuchá las palabras, tocá las respuestas y ganá estrellas. <em>Si te equivocás, yo te explico.</em></p>
+
+      <div class="subject-picker" role="group" aria-label="Elegí un tema">
+        <button class="subject-option active" type="button" data-topic="Todos" aria-pressed="true">
+          <span>🎒</span><strong>Mezclar todo</strong><small>Todos los temas</small>
+        </button>
+        <button class="subject-option" type="button" data-topic="helpers" aria-pressed="false">
+          <span>👩⚕️</span><strong>Community Helpers</strong><small>Ayudantes de la comunidad</small>
+        </button>
+        <button class="subject-option" type="button" data-topic="places" aria-pressed="false">
+          <span>🏥</span><strong>Places</strong><small>Lugares de la comunidad</small>
+        </button>
+        <button class="subject-option" type="button" data-topic="goods" aria-pressed="false">
+          <span>🛍️</span><strong>Goods &amp; Services</strong><small>Bienes y servicios</small>
+        </button>
+        <button class="subject-option" type="button" data-topic="phonics" aria-pressed="false">
+          <span>🔤</span><strong>-op / -og Words</strong><small>Palabras que riman</small>
+        </button>
+        <button class="subject-option" type="button" data-topic="questions" aria-pressed="false">
+          <span>❓</span><strong>Where can I...?</strong><small>Preguntas y fecha</small>
+        </button>
+      </div>
+
+      <div class="start-controls">
+        <label for="question-count">Cantidad de retos</label>
+        <select id="question-count">
+          <option value="10" selected>10 retos</option>
+          <option value="15">15 retos</option>
+          <option value="all">Todos los retos</option>
+        </select>
+        <button id="start-btn" class="primary-btn" type="button">¡A jugar! <span aria-hidden="true">🚀</span></button>
+      </div>
+
+      <p class="voice-note"><span aria-hidden="true">🔊</span> Tocá el botón azul para <strong>escuchar</strong> las palabras en inglés. Si hay un error, Buho te explica en español.</p>
+    </section>
+
+    <!-- PANTALLA DE JUEGO -->
+    <section id="game-screen" class="screen" aria-live="polite">
+      <header class="game-header">
+        <div class="stat"><span>ESTRELLAS</span><strong id="score">⭐ 0</strong></div>
+        <div class="progress-area">
+          <div><span id="progress-label">Reto 1 de 10</span><button id="exit-btn" type="button">Salir</button></div>
+          <div class="progress-track" aria-hidden="true"><div id="progress-bar"></div></div>
+        </div>
+        <div class="stat"><span>RACHA</span><strong id="streak">0 🔥</strong></div>
+      </header>
+
+      <article class="question-card">
+        <div class="question-meta">
+          <span id="topic-badge" class="topic-badge">Community Helpers</span>
+          <button id="voice-toggle" class="voice-toggle" type="button" aria-pressed="true">🔊 Voz</button>
+        </div>
+        <div id="question-visual" class="question-visual" aria-hidden="true">👩⚕️</div>
+        <p id="activity-label" class="activity-label">Elegí la respuesta correcta</p>
+        <h2 id="question-text"></h2>
+        <p id="question-translation" class="question-translation"></p>
+        <button id="listen-btn" class="listen-btn" type="button">🔊 Escuchar / Listen</button>
+        <div id="answers" class="answers" role="group" aria-label="Opciones de respuesta"></div>
+        <div id="feedback" class="feedback hidden" role="status">
+          <div id="feedback-icon" class="feedback-icon"></div>
+          <div><strong id="feedback-title"></strong><p id="feedback-text"></p></div>
+        </div>
+        <button id="next-btn" class="primary-btn next-btn hidden" type="button">Siguiente reto →</button>
+      </article>
+    </section>
+
+    <!-- PANTALLA FINAL -->
+    <section id="end-screen" class="screen" aria-labelledby="end-title">
+      <div class="mascot" aria-hidden="true">🏆</div>
+      <p class="eyebrow">PRÁCTICA COMPLETADA</p>
+      <h1 id="end-title">Great job! ¡Buen trabajo!</h1>
+      <div class="result-card">
+        <div class="result-stat"><span>Estrellas</span><strong id="final-score">0</strong></div>
+        <div class="result-stat"><span>Correctas</span><strong id="final-correct">0/0</strong></div>
+        <div class="result-stat"><span>Mejor racha</span><strong id="final-streak">0 🔥</strong></div>
+      </div>
+      <p id="end-message" class="intro"></p>
+      <div id="review-list" class="review-list"></div>
+      <div class="end-actions">
+        <button id="retry-btn" class="primary-btn" type="button">Jugar otra vez 🔁</button>
+        <button id="home-btn" class="secondary-btn" type="button">Volver al inicio 🏠</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
